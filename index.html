@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#050505">
+  <title>𝗟𝗨𝗡𝗔𝗥𝗫 𝗠𝗢𝗢𝗡𝗥𝗜𝗦𝗘</title>
+  <meta name="description" content="LUNARX MOONRISE — project archive">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #050505;
+      --fg: #f4f4f1;
+      --muted: #8c8c8c;
+      --line: rgba(255,255,255,.3);
+      --soft-line: rgba(255,255,255,.13);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background:
+        radial-gradient(ellipse at 50% 0%, rgba(255,255,255,.055), transparent 42%),
+        var(--bg);
+      color: var(--fg);
+      font-family: "Manrope", "Helvetica Neue", sans-serif;
+      font-weight: 300;
+      letter-spacing: .02em;
+    }
+    a { color: inherit; text-decoration: none; }
+    .page {
+      width: min(100% - 36px, 920px);
+      margin: 0 auto;
+      padding: 26px 0 22px;
+    }
+    .topline, .footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      color: var(--muted);
+      font: 10px/1.6 "DM Mono", monospace;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+    .topline { padding: 0 0 18px; border-bottom: 1px solid var(--line); }
+    .status { display: inline-flex; align-items: center; gap: 8px; }
+    .status::before {
+      content: "";
+      width: 5px; height: 5px; border-radius: 50%;
+      background: var(--fg); box-shadow: 0 0 9px rgba(255,255,255,.65);
+    }
+    .hero {
+      min-height: 390px;
+      padding: 78px 12px 58px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .moon {
+      width: 72px; height: 72px; border: 1px solid rgba(255,255,255,.7);
+      border-radius: 50%; position: relative; margin-bottom: 30px;
+      box-shadow: 0 0 36px rgba(255,255,255,.04), inset -13px 0 0 -11px rgba(255,255,255,.7);
+    }
+    .moon::before, .moon::after {
+      content: "✦"; position: absolute; color: #fff; font-size: 11px;
+    }
+    .moon::before { top: -12px; right: -23px; }
+    .moon::after { bottom: 0; left: -21px; font-size: 8px; }
+    .jp {
+      color: #a5a5a5;
+      font-size: 11px;
+      letter-spacing: .38em;
+      margin-bottom: 17px;
+    }
+    h1 {
+      font-size: clamp(25px, 5.4vw, 48px);
+      font-weight: 400;
+      line-height: 1.22;
+      letter-spacing: .09em;
+      margin: 0;
+      max-width: 100%;
+      overflow-wrap: anywhere;
+    }
+    .subtitle {
+      margin-top: 17px;
+      color: var(--muted);
+      font: 10px/1.8 "DM Mono", monospace;
+      letter-spacing: .22em;
+    }
+    .ornament {
+      color: #9b9b9b;
+      font-size: 12px;
+      letter-spacing: .7em;
+      margin-top: 25px;
+      padding-left: .7em;
+    }
+    .section { border-top: 1px solid var(--line); }
+    .section-label {
+      padding: 17px 0 13px;
+      display: flex; justify-content: space-between; gap: 12px;
+      color: var(--muted);
+      font: 10px/1.6 "DM Mono", monospace;
+      letter-spacing: .17em;
+    }
+    .counter {
+      border-top: 1px solid var(--soft-line);
+      border-bottom: 1px solid var(--soft-line);
+      padding: 29px 10px 31px;
+      text-align: center;
+    }
+    .counter-number {
+      font-size: clamp(54px, 13vw, 94px);
+      font-weight: 300;
+      letter-spacing: -.055em;
+      line-height: 1;
+      font-variant-numeric: tabular-nums;
+    }
+    .counter-caption {
+      margin-top: 15px;
+      font: 10px/1.8 "DM Mono", monospace;
+      color: #b8b8b8;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+    }
+    .since { margin-top: 8px; color: var(--muted); font-size: 11px; }
+    .links { display: grid; grid-template-columns: 1fr 1fr; }
+    .link-card {
+      min-height: 106px;
+      display: flex; flex-direction: column; justify-content: space-between;
+      padding: 20px 18px 17px;
+      border-bottom: 1px solid var(--line);
+      transition: background .2s ease, padding .2s ease;
+    }
+    .link-card + .link-card { border-left: 1px solid var(--line); }
+    .link-card:hover { background: rgba(255,255,255,.055); padding-top: 17px; }
+    .link-top { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+    .link-index { color: var(--muted); font: 10px "DM Mono", monospace; letter-spacing: .15em; }
+    .arrow { font-size: 17px; font-weight: 300; }
+    .link-name { font-size: 16px; letter-spacing: .12em; }
+    .link-note { color: var(--muted); font: 9px "DM Mono", monospace; letter-spacing: .13em; margin-top: 8px; }
+    .footer { padding-top: 20px; }
+    .footer .symbol { color: #eee; font-size: 14px; letter-spacing: .2em; }
+    @media (max-width: 520px) {
+      .page { width: min(100% - 26px, 920px); padding-top: 18px; }
+      .topline, .footer { font-size: 8px; letter-spacing: .1em; }
+      .hero { min-height: 340px; padding: 65px 2px 48px; }
+      .links { grid-template-columns: 1fr; }
+      .link-card + .link-card { border-left: 0; }
+      .link-card { min-height: 91px; }
+      .jp { letter-spacing: .24em; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header class="topline">
+      <span>PROJECT ARCHIVE / 001</span>
+      <span class="status">ONLINE</span>
+    </header>
+
+    <section class="hero" aria-labelledby="site-title">
+      <div class="moon" aria-hidden="true"></div>
+      <div class="jp" lang="ja">月の出 — 月明かり</div>
+      <h1 id="site-title">𝗟𝗨𝗡𝗔𝗥𝗫<br>𝗠𝗢𝗢𝗡𝗥𝗜𝗦𝗘</h1>
+      <div class="subtitle">A QUIET PLACE UNDER THE MOON</div>
+      <div class="ornament" aria-hidden="true">✧ ・ ☾ ・ ✧</div>
+    </section>
+
+    <section class="section" aria-labelledby="duration-title">
+      <div class="section-label">
+        <span id="duration-title">PROJECT DURATION</span>
+        <span>EST. 2024.11.24</span>
+      </div>
+      <div class="counter">
+        <div class="counter-number" id="days">—</div>
+        <div class="counter-caption">days since the beginning</div>
+        <div class="since">проект существует с 24 ноября 2024 года</div>
+      </div>
+    </section>
+
+    <nav class="section" aria-label="Project links">
+      <div class="section-label">
+        <span>EXPLORE THE PROJECT</span>
+        <span>02 LINKS</span>
+      </div>
+      <div class="links">
+        <a class="link-card" href="https://t.me/LUNARX_LIFE" target="_blank" rel="noopener noreferrer">
+          <div class="link-top">
+            <span class="link-index">01 / LIFE</span>
+            <span class="arrow" aria-hidden="true">↗</span>
+          </div>
+          <div>
+            <div class="link-name">LIFE</div>
+            <div class="link-note">DAILY LIFE OF THE PROJECT</div>
+          </div>
+        </a>
+        <a class="link-card" href="https://t.me/LUNARX_MOONRISE" target="_blank" rel="noopener noreferrer">
+          <div class="link-top">
+            <span class="link-index">02 / INFO</span>
+            <span class="arrow" aria-hidden="true">↗</span>
+          </div>
+          <div>
+            <div class="link-name">INFO</div>
+            <div class="link-note">ABOUT LUNARX MOONRISE</div>
+          </div>
+        </a>
+      </div>
+    </nav>
+
+    <footer class="footer">
+      <span>© LUNARX MOONRISE</span>
+      <span class="symbol">月 · 星 · 夜</span>
+      <span>EST. MMXXIV</span>
+    </footer>
+  </main>
+
+  <script>
+    // Дата основания проекта: 24 ноября 2024 года.
+    // Счётчик обновляется автоматически при каждом открытии страницы.
+    function updateProjectDays() {
+      const founded = new Date(Date.UTC(2024, 10, 24));
+      const now = new Date();
+      const todayUTC = Date.UTC(now.getFullYear(), now.getMonth(), now.getDate());
+      const elapsedDays = Math.floor((todayUTC - founded.getTime()) / 86400000);
+      document.getElementById("days").textContent =
+        Math.max(0, elapsedDays).toLocaleString("ru-RU");
+    }
+    updateProjectDays();
+  </script>
+</body>
+</html>
